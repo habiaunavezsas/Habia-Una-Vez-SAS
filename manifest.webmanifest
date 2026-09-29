@@ -1,0 +1,18 @@
+{
+  "name": "Había una vez…",
+  "short_name": "Había una vez",
+  "description": "Biblioteca mágica con cuentos, audiocuentos, videos y actividades para niños.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f9f1ff",
+  "theme_color": "#7a63ff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

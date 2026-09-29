@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Biblioteca mágica para cuentos infantiles, audiocuentos, videos, actividades y juegos educativos."
+    />
+    <meta name="theme-color" content="#7a63ff" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="assets/logo.jpeg" type="image/jpeg" />
+    <title>Había una vez…</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=4" />
+  </head>
+  <body>
+    <div class="page-glow glow-one"></div>
+    <div class="page-glow glow-two"></div>
+    <header class="site-header">
+      <nav class="topbar container">
+        <details class="quick-nav">
+          <summary class="quick-nav-toggle" aria-label="Cambiar de sección" title="Cambiar de sección">☰</summary>
+          <div class="quick-nav-menu" aria-label="Secciones">
+            <button type="button" data-tab-target="home" aria-label="Inicio" title="Inicio"><span>🏠</span> Inicio</button>
+            <button type="button" data-tab-target="stories" aria-label="Cuentos" title="Cuentos"><span>📚</span> Cuentos</button>
+            <button type="button" data-tab-target="audio" aria-label="Audios" title="Audios"><span>🎧</span> Audios</button>
+            <button type="button" data-tab-target="videos" aria-label="Videos" title="Videos"><span>🎥</span> Videos</button>
+            <button type="button" data-tab-target="activities" aria-label="Actividades" title="Actividades"><span>🎮</span> Actividades</button>
+            <button type="button" data-tab-target="coloring" aria-label="Colorear" title="Colorear"><span>🎨</span> Colorear</button>
+            <button type="button" data-tab-target="characters" aria-label="Personajes" title="Personajes"><span>🧚</span> Personajes</button>
+            <button type="button" data-tab-target="favorites" aria-label="Favoritos" title="Favoritos"><span>⭐</span> Favoritos</button>
+            <button type="button" data-tab-target="achievements" aria-label="Logros" title="Logros"><span>🏆</span> Logros</button>
+          </div>
+        </details>
+
+        <div class="topbar-add-actions" aria-label="Agregar contenido">
+          <button type="button" id="authButton" class="topbar-add-btn auth-btn" data-open-modal="authModal">🔐 Iniciar sesión</button>
+          <button type="button" id="addContentButton" class="topbar-add-btn topbar-add-main hidden" data-open-modal="addMenuModal">➕ Añadir</button>
+          <button type="button" id="deleteVideosButton" class="topbar-add-btn topbar-delete-btn hidden" data-open-modal="deleteVideosModal" aria-label="Eliminar">🗑️ Eliminar</button>
+        </div>
+      </nav>
+    </header>
+
+    <section id="loginGate" class="login-gate" aria-labelledby="loginGateTitle">
+      <div class="login-gate-card">
+        <div class="login-gate-icon">🔐</div>
+        <h2 id="loginGateTitle">Inicia sesión para entrar</h2>
+        <p>Explora cuentos y actividades sin crear una cuenta.</p>
+        <div class="login-gate-actions">
+          <button type="button" id="guestModeBtn" class="primary-btn">👀 Entrar como invitado</button>
+          <button type="button" class="secondary-btn" data-open-modal="authModal">🔑 Iniciar sesión</button>
+        </div>
+      </div>
+    </section>
+
+    <main id="home" class="container">
+      <section class="hero panel" data-tab-section="home">
+        <div class="hero-copy">
+          <span class="hero-badge">✨ Biblioteca encantada</span>
+          <h1>📖 HABÍA UNA VEZ…</h1>
+          <p class="hero-subtitle">“Imagina, sueña y descubre”</p>
+          <p class="hero-message">“¡Abre un libro y entra a un mundo lleno de magia!” ✨</p>
+
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <img class="hero-logo" src="assets/logo.jpeg" alt="" />
+          <div class="moon"></div>
+          <div class="cloud cloud-one"></div>
+          <div class="cloud cloud-two"></div>
+          <div class="castle castle-one"></div>
+          <div class="castle castle-two"></div>
+          <div class="tree tree-one"></div>
+          <div class="tree tree-two"></div>
+          <div class="tree tree-three"></div>
+          <div class="star star-one"></div>
+          <div class="star star-two"></div>
+          <div class="star star-three"></div>
+          <div class="rainbow"></div>
+        </div>
+      </section>
+
+      <section class="home-menu panel" data-tab-section="home" aria-labelledby="homeMenuTitle">
+        <div class="section-header">
+          <div>
+            <span class="mini-badge">Explora la biblioteca</span>
+            <h2 id="homeMenuTitle">¿A dónde quieres ir?</h2>
+          </div>
+          <p>Elige una aventura para comenzar.</p>
+        </div>
+        <div class="home-menu-grid">
+          <button class="home-menu-btn menu-coral" data-tab-target="stories"><span>📚</span><strong>Cuentos</strong><small>Lee historias mágicas</small></button>
+          <button class="home-menu-btn menu-teal" data-tab-target="audio"><span>🎧</span><strong>Audios</strong><small>Escucha y relájate</small></button>
+          <button class="home-menu-btn menu-gold" data-tab-target="videos"><span>🎥</span><strong>Videos</strong><small>Mira nuevas aventuras</small></button>
+          <button class="home-menu-btn menu-mint" data-tab-target="activities"><span>🎮</span><strong>Actividades</strong><small>Aprende jugando</small></button>
+          <button class="home-menu-btn menu-blue" data-tab-target="coloring"><span>🎨</span><strong>Colorea</strong><small>Crea tu propia escena</small></button>
+          <button class="home-menu-btn menu-lilac" data-tab-target="characters"><span>🧚</span><strong>Personajes</strong><small>Conoce a tus amigos</small></button>
+          <button class="home-menu-btn menu-gold" data-tab-target="favorites"><span>⭐</span><strong>Favoritos</strong><small>Revisa tus cuentos</small></button>
+          <button class="home-menu-btn menu-teal" data-tab-target="achievements"><span>🏆</span><strong>Logros</strong><small>Mira tus avances</small></button>
+        </div>
+      </section>
+
+      <section class="story-toolbar panel" data-tab-section="stories">
+        <div class="filter-wrap" id="categoryFilters" aria-label="Filtrar cuentos por categoría"></div>
+      </section>
+
+      <section id="stories" class="section-block" data-tab-section="stories">
+        <div class="section-header">
+          <h2>✨ Nuestros cuentos 📚</h2>
+          <p>Descubre historias mágicas para leer, escuchar, mirar y jugar.</p>
+          <button class="back-home-btn" data-tab-target="home">🏠 Inicio</button>
+        </div>
+        <div id="storyGrid" class="story-grid"></div>
+      </section>
+
+      <section id="audio" class="section-block" data-tab-section="audio">
+        <div class="section-header">
+          <h2>🎧 Escucha historias</h2>
+          <p>Audios tranquilos y narraciones apropiadas para niñas y niños.</p>
+          <button class="back-home-btn" data-tab-target="home">🏠 Inicio</button>
+        </div>
+        <div id="audioGrid" class="audio-grid"></div>
+      </section>
+
+      <section id="videos" class="section-block" data-tab-section="videos">
+        <div class="section-header">
+          <h2>🎥 Mira nuestros cuentos</h2>
+          <p>Videos encantadores para disfrutar con ojos curiosos.</p>
+          <button class="back-home-btn" data-tab-target="home">🏠 Inicio</button>
+        </div>
+        <div id="videoGrid" class="video-grid"></div>
+      </section>
+
+      <section id="activities" class="section-block" data-tab-section="activities">
+        <div class="section-header">
+          <h2>🌟 Aprende jugando</h2>
+          <p>Comprensión lectora, retos y juego con cada historia.</p>
+          <button class="back-home-btn" data-tab-target="home">🏠 Inicio</button>
+        </div>
+        <div id="activityGrid" class="activity-grid"></div>
+      </section>
+
+      <section id="coloring" class="section-block" data-tab-section="coloring">
+        <div class="section-header">
+          <h2>🖍️ Colorea tu cuento</h2>
+          <p>Ilustraciones en blanco y negro para pintar con creatividad.</p>
+          <button class="back-home-btn" data-tab-target="home">🏠 Inicio</button>
+        </div>
+        <div id="coloringGrid" class="coloring-grid"></div>
+      </section>
+
+      <section id="characters" class="section-block" data-tab-section="characters">
+        <div class="section-header">
+          <h2>🧚 Conoce a los personajes</h2>
+          <button class="back-home-btn" data-tab-target="home">🏠 Inicio</button>
+        </div>
+        <div id="charactersGrid" class="characters-grid"></div>
+      </section>
+
+      <section id="values" class="section-block" data-tab-section="values">
+        <div class="section-header">
+          <h2>❤️ Aprendemos con los cuentos</h2>
+          <button class="back-home-btn" data-tab-target="home">🏠 Inicio</button>
+        </div>
+        <div id="valuesGrid" class="values-grid"></div>
+      </section>
+
+      <section id="favorites" class="section-block" data-tab-section="favorites">
+        <div class="section-header">
+          <h2>⭐ Mis cuentos favoritos</h2>
+          <button class="back-home-btn" data-tab-target="home">🏠 Inicio</button>
+        </div>
+        <div id="favoritesGrid" class="story-grid compact"></div>
+      </section>
+
+      <section id="achievements" class="section-block" data-tab-section="achievements">
+        <div class="section-header">
+          <h2>🏆 Mis logros</h2>
+          <button class="back-home-btn" data-tab-target="home">🏠 Inicio</button>
+        </div>
+        <div id="achievementsGrid" class="achievements-grid"></div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>✨ Había una vez… un mundo mágico para aprender, imaginar y soñar.</p>
+    </footer>
+
+    <div id="readerModal" class="modal hidden" aria-modal="true" role="dialog">
+      <div class="modal-card reader-card">
+        <button class="close-btn" data-close="readerModal">✕</button>
+        <div class="reader-topbar">
+          <div>
+            <span id="readerCategory" class="mini-badge"></span>
+            <h3 id="readerTitle"></h3>
+          </div>
+          <div class="font-tools">
+            <button id="decreaseFont">A-</button>
+            <button id="increaseFont">A+</button>
+            <button id="readAudioBtn">🎧 Escuchar</button>
+          </div>
+        </div>
+
+        <div class="reader-illustration" id="readerCover"></div>
+
+        <div class="reader-page" id="readerPage"></div>
+
+        <div class="reader-nav">
+          <button id="prevPageBtn">⬅️ Anterior</button>
+          <div class="progress-wrap">
+            <div class="progress-bar">
+              <span id="readerProgressBar"></span>
+            </div>
+            <small id="readerProgressText">Página 1 de 1</small>
+          </div>
+          <button id="nextPageBtn">Siguiente ➡️</button>
+        </div>
+
+        <div class="reader-footer-actions">
+          <button class="primary-btn" data-close="readerModal">⬅️ Volver</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="audioModal" class="modal hidden" aria-modal="true" role="dialog">
+      <div class="modal-card audio-card">
+        <button class="close-btn" data-close="audioModal">✕</button>
+        <h3 id="audioTitle">Narración</h3>
+        <div id="audioCover" class="audio-cover audio-modal-cover" role="img" aria-label="Imagen del cuento"></div>
+        <div class="audio-controls">
+          <button id="playAudioBtn">▶️ Reproducir</button>
+          <button id="pauseAudioBtn">⏸️ Pausar</button>
+          <button id="restartAudioBtn">🔄 Reiniciar</button>
+        </div>
+        <label>
+          🔊 Volumen
+          <input id="audioVolume" type="range" min="0" max="1" step="0.1" value="1" />
+        </label>
+        <label class="audio-speed-control">
+          ⚡ Velocidad <strong id="audioRateValue">0.9x</strong>
+          <input id="audioRate" type="range" min="0.5" max="1.5" step="0.1" value="0.9" />
+        </label>
+        <p id="audioStatus">Listo para escuchar.</p>
+      </div>
+    </div>
+
+    <div id="videoModal" class="modal hidden" aria-modal="true" role="dialog">
+      <div class="modal-card video-card">
+        <button class="close-btn" data-close="videoModal">✕</button>
+        <h3 id="videoTitle"></h3>
+        <video id="storyVideo" controls playsinline preload="metadata"></video>
+        <iframe id="storyVideoFrame" class="hidden" title="Video del cuento" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
+        <div class="video-controls-inline">
+          <button id="videoPlayBtn">▶️ Reproducir</button>
+          <button id="videoPauseBtn">⏸️ Pausar</button>
+          <button id="videoMuteBtn">🔊 Silenciar</button>
+          <button id="videoFullscreenBtn">⛶ Pantalla</button>
+          <button id="videoReplayBtn">🔄 Repetir</button>
+        </div>
+        <label class="video-volume">🔊 Volumen <input id="videoVolume" type="range" min="0" max="1" step="0.1" value="1" /></label>
+        <button id="videoActivityBtn" class="primary-btn">🎮 Realizar actividad</button>
+      </div>
+    </div>
+
+    <div id="activityModal" class="modal hidden" aria-modal="true" role="dialog">
+      <div class="modal-card activity-card">
+        <button class="close-btn" data-close="activityModal">✕</button>
+        <h3 id="activityTitle"></h3>
+        <div id="activityChoices" class="activity-choices">
+          <button type="button" data-activity-type="quiz">❓ Preguntas del cuento</button>
+          <button type="button" data-activity-type="word-search">🔎 Sopa de letras</button>
+        </div>
+        <div id="activityGame"></div>
+        <div class="activity-footer">
+          <button id="completeActivityBtn" class="primary-btn hidden">✅ Terminé</button>
+          <div id="activityResult" class="score-result"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="colorModal" class="modal hidden" aria-modal="true" role="dialog">
+      <div class="modal-card color-card">
+        <button class="close-btn" data-close="colorModal">✕</button>
+        <h3 id="colorTitle"></h3>
+        <div class="color-tools">
+          <div class="active-color-preview" aria-label="Color seleccionado">
+            <span>Color elegido</span>
+            <span id="activeColorPreview"></span>
+          </div>
+          <div class="palette" id="colorPalette"></div>
+          <button id="eraserBtn">🧽 Borrador</button>
+          <button id="clearCanvasBtn">🧼 Limpiar dibujo</button>
+          <button id="saveCanvasBtn">💾 Guardar</button>
+          <button id="printCanvasBtn">🖨️ Imprimir</button>
+        </div>
+        <canvas id="colorCanvas" width="620" height="420"></canvas>
+      </div>
+    </div>
+
+    <div id="addStoryModal" class="modal hidden" aria-modal="true" role="dialog" aria-labelledby="addStoryTitle">
+      <div class="modal-card add-story-card">
+        <button class="close-btn" data-close="addStoryModal" aria-label="Cerrar">✕</button>
+        <h3 id="addStoryTitle">➕ Añadir un cuento</h3>
+        <p class="form-intro">Crea una historia para compartirla en esta biblioteca.</p>
+        <form id="addStoryForm" class="story-form">
+          <label>Título del cuento <input name="title" type="text" required maxlength="80" /></label>
+          <label>Descripción <textarea name="description" required maxlength="220" rows="3"></textarea></label>
+          <div class="form-row">
+            <label>Categoría
+              <select name="category">
+                <option>Animales</option><option>Fantasía</option><option>Aventuras</option>
+                <option>Amistad</option><option>Valores</option><option>Educativos</option>
+                <option>Naturaleza</option>
+              </select>
+            </label>
+            <label>Edad recomendada
+              <select name="age"><option>3-5 años</option><option>4-6 años</option><option>5-7 años</option><option>7-9 años</option></select>
+            </label>
+          </div>
+          <label>Imagen de portada <input name="cover" type="file" accept="image/*" required /></label>
+          <label>Texto del cuento <textarea name="pages" required rows="8" placeholder="Escribe la página 1.&#10;&#10;Escribe la página 2.&#10;&#10;Escribe la página 3."></textarea></label>
+          <small class="form-help">Selecciona las imágenes en el mismo orden que las páginas. Las páginas se separan con una línea en blanco.</small>
+          <label>Enlace del video (opcional) <input name="videoUrl" type="url" placeholder="Pega aquí el enlace del video" /></label>
+          <div class="form-actions">
+            <button type="button" class="secondary-btn" data-close="addStoryModal">Cancelar</button>
+            <button type="submit" class="primary-btn">💾 Guardar cuento</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="addMenuModal" class="modal hidden" aria-modal="true" role="dialog" aria-labelledby="addMenuTitle">
+      <div class="modal-card add-menu-card">
+        <button class="close-btn" data-close="addMenuModal" aria-label="Cerrar">✕</button>
+        <h3 id="addMenuTitle">➕ Añadir contenido</h3>
+        <p class="form-intro">Elige qué quieres agregar a la biblioteca.</p>
+        <div class="add-menu-options">
+          <button type="button" class="add-menu-option" data-open-modal="addVideoModal">🎥<span>Añadir video</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div id="deleteVideosModal" class="modal hidden" aria-modal="true" role="dialog" aria-labelledby="deleteVideosTitle">
+      <div class="modal-card add-menu-card">
+        <button class="close-btn" data-close="deleteVideosModal" aria-label="Cerrar">✕</button>
+        <h3 id="deleteVideosTitle">🗑️ Eliminar videos</h3>
+        <p class="form-intro">Elige el video que quieres eliminar.</p>
+        <div id="deleteVideosList" class="add-menu-options"></div>
+      </div>
+    </div>
+
+    <div id="addVideoModal" class="modal hidden" aria-modal="true" role="dialog" aria-labelledby="addVideoTitle">
+      <div class="modal-card add-content-card">
+        <button class="close-btn" data-close="addVideoModal" aria-label="Cerrar">✕</button>
+        <h3 id="addVideoTitle">🎥 Añadir video</h3>
+        <p class="form-intro">Conecta un video con uno de tus cuentos.</p>
+        <form id="addVideoForm" class="story-form">
+          <label>Cuento
+            <select name="storyId" required></select>
+          </label>
+          <label>Enlace del video <input name="videoUrl" type="url" required placeholder="Pega aquí el enlace del video" /></label>
+          <div class="form-actions">
+            <button type="button" class="secondary-btn" data-close="addVideoModal">Cancelar</button>
+            <button type="submit" class="primary-btn">💾 Guardar video</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="addCharacterModal" class="modal hidden" aria-modal="true" role="dialog" aria-labelledby="addCharacterTitle">
+      <div class="modal-card add-content-card">
+        <button class="close-btn" data-close="addCharacterModal" aria-label="Cerrar">✕</button>
+        <h3 id="addCharacterTitle">🧚 Añadir personaje</h3>
+        <p class="form-intro">Agrega un personaje a la galería de la biblioteca.</p>
+        <form id="addCharacterForm" class="story-form">
+          <label>Nombre <input name="name" type="text" required maxlength="50" /></label>
+          <label>Descripción <textarea name="description" required maxlength="220" rows="3"></textarea></label>
+          <div class="form-row">
+            <label>Cuento <input name="story" type="text" required maxlength="80" /></label>
+            <label>Valor <input name="value" type="text" required maxlength="40" /></label>
+          </div>
+          <label>Rasgos (separados por comas) <input name="traits" type="text" placeholder="Valiente, Curioso, Amable" /></label>
+          <label>Imagen del personaje <input name="image" type="file" accept="image/*" required /></label>
+          <div class="form-actions">
+            <button type="button" class="secondary-btn" data-close="addCharacterModal">Cancelar</button>
+            <button type="submit" class="primary-btn">💾 Guardar personaje</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="authModal" class="modal hidden" aria-modal="true" role="dialog" aria-labelledby="authTitle">
+      <div class="modal-card auth-card">
+        <button class="close-btn" data-close="authModal" aria-label="Cerrar">✕</button>
+        <span class="hero-badge">✨ Tu biblioteca</span>
+        <h3 id="authTitle">Inicia sesión</h3>
+        <p class="form-intro">Guarda tus favoritos y tus progresos en cualquier dispositivo.</p>
+        <div class="auth-mode-tabs" role="tablist" aria-label="Acceso a la cuenta">
+          <button type="button" id="showLoginMode" class="auth-mode-tab is-active" role="tab">Iniciar sesión</button>
+          <button type="button" id="showSignupMode" class="auth-mode-tab" role="tab">Crear cuenta</button>
+        </div>
+        <button type="button" id="googleLoginBtn" class="google-login-btn">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="" aria-hidden="true" />
+          <span>Continuar con Google</span>
+        </button>
+        <div class="auth-divider"><span>o usa tu correo</span></div>
+        <form id="emailAuthForm" class="auth-form">
+          <label>Correo electrónico <input id="authEmail" type="email" autocomplete="email" required /></label>
+          <label>Contraseña <input id="authPassword" type="password" autocomplete="current-password" minlength="6" required /></label>
+          <div class="auth-form-actions">
+            <button type="submit" id="authSubmitBtn" class="primary-btn">🔑 Iniciar sesión</button>
+          </div>
+        </form>
+        <button type="button" id="logoutBtn" class="secondary-btn hidden">Cerrar sesión</button>
+        <p id="authStatus" class="auth-status" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="app.js?v=3"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>
